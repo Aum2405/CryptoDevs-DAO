@@ -1,0 +1,284 @@
+.main {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}o
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  animation: titleFloat 3s ease-in-out infinite;
+}
+
+@keyframes titleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.statCard {
+  background: rgba(10, 10, 18, 0.8);
+  border: 1px solid var(--primary);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+}
+
+.statValue {
+  font-size: 2.5rem;
+  font-family: var(--font-mono);
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 1rem 0;
+}
+
+.statLabel {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.tabContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.tabButton {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tabButton:hover {
+  background: var(--primary);
+  color: var(--background);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
+}
+
+.tabButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.tabButton:hover::before {
+  left: 100%;
+}
+
+.activeTab {
+  background: var(--primary);
+  color: var(--background);
+}
+
+.proposalCard {
+  background: rgba(10, 10, 18, 0.8);
+  border: 1px solid var(--primary);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 1rem 0;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.proposalCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.2);
+}
+
+.proposalTitle {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.proposalInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.proposalStat {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 247, 255, 0.1);
+  border-radius: 0.5rem;
+}
+
+.voteButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.voteButtons button {
+  min-width: 120px;
+  padding: 0.75rem 2rem;
+}
+
+.voteYes {
+  background: linear-gradient(45deg, #00ff9d, #00f7ff);
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+.voteNo {
+  background: linear-gradient(45deg, #ff0055, #ff00aa);
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.executeButton {
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  width: 100%;
+  margin-top: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.customConnectButton {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: var(--text-primary);
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.customConnectButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.4);
+}
+
+.buttonGlow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.customConnectButton:hover .buttonGlow {
+  left: 100%;
+}
+
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 18, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--primary);
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .statsContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .tabContainer {
+    flex-direction: column;
+  }
+
+  .tabButton {
+    width: 100%;
+  }
+
+  .proposalInfo {
+    grid-template-columns: 1fr;
+  }
+}
