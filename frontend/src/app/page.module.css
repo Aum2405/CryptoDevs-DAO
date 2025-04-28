@@ -1,6 +1,6 @@
 .main {
   min-height: 100vh;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 2rem 2rem;
   position: relative;
   overflow: hidden;
 }o
@@ -10,6 +10,7 @@
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  padding-top: 5.5rem;
 }
 
 .title {
@@ -281,4 +282,98 @@
   .proposalInfo {
     grid-template-columns: 1fr;
   }
+}
+
+.walletInfoContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 1rem;
+}
+
+.walletAddressContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.walletAddressButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.walletAddressButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.disconnectButton {
+  background: rgba(255, 0, 0, 0.2);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.disconnectButton:hover {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.walletActivityContainer {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  min-width: 300px;
+  z-index: 1000;
+}
+
+.activityList {
+  margin-top: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.walletInfoPill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255,255,255,0.07);
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+.ethBalance {
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  margin-right: 0.5rem;
+}
+
+.statusDot {
+  width: 12px;
+  height: 12px;
+  background: #1ecb4f;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+  box-shadow: 0 0 6px #1ecb4f99;
 }

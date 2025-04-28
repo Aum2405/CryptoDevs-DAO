@@ -21,25 +21,11 @@ import {
   writeContract,
 } from 'wagmi/actions';
 import { Inter } from 'next/font/google';
-import { useWeb3Modal } from '@web3modal/wagmi/react';
 import './globals.css';
 import styles from './page.module.css';
+import WalletInfo from '@/components/WalletInfo';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
-
-const CustomW3mConnectButton = () => {
-  const { open } = useWeb3Modal();
-
-  return (
-    <button 
-      onClick={() => open()} 
-      className={styles.customConnectButton}
-    >
-      <span className={styles.buttonGlow}></span>
-      Connect Wallet
-    </button>
-  );
-};
 
 export default function Home() {
   const { address, isConnected } = useAccount();
@@ -380,7 +366,7 @@ export default function Home() {
           <h1 className={styles.title}>Welcome to CryptoDevs DAO</h1>
           <p className="text-center">Connect your wallet to get started</p>
           <div className="flex justify-center mt-8">
-            <CustomW3mConnectButton />
+            <WalletInfo />
           </div>
         </div>
       </div>
@@ -393,17 +379,14 @@ export default function Home() {
         <title>CryptoDevs DAO</title>
         <meta name="description" content="CryptoDevs DAO - A Decentralized Autonomous Organization" />
       </Head>
-
+      <WalletInfo />
       <div className={styles.container}>
         <h1 className={styles.title}>Welcome to CryptoDevs DAO</h1>
         <p className="text-center mb-8">A Decentralized Autonomous Organization for CryptoDevs NFT Holders</p>
-        
         {renderStats()}
         {renderTabs()}
-        
         {selectedTab === 'Create Proposal' && renderCreateProposalTab()}
         {selectedTab === 'View Proposals' && renderViewProposalsTab()}
-        
         {daoOwner && address && daoOwner.toLowerCase() === address.toLowerCase() && (
           <div className={styles.proposalCard}>
             <h3 className={styles.proposalTitle}>Admin Panel</h3>
@@ -416,7 +399,6 @@ export default function Home() {
             </button>
           </div>
         )}
-        
         {renderLoadingOverlay()}
       </div>
     </div>
